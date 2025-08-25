@@ -35,6 +35,7 @@ html {
     background-color: #ffffff;
     padding: 80px 20px;
     text-align: center;
+    height: calc(100% - 90px);
 }
 
 .about-content {
@@ -154,21 +155,40 @@ html {
     padding-top: 40px;
 }
 
+:root {
+    --header-h: 120px;
+}
 
-:root { --header-h: 120px; }   /* top green bar + white nav; tweak to match your exact height */
+
+/* top green bar + white nav; tweak to match your exact height */
+
 
 /* When you land on a hash/anchor, leave space for the sticky header */
-.about-us { padding-top: calc(80px + var(--header-h)); }
+
+.about-us {
+    padding-top: calc(80px + var(--header-h));
+}
+
 
 /* If you ever scroll to these sections/headings, keep them clear of the header */
+
 .about-us,
 .about-content h2,
-.page-title h1 { scroll-margin-top: var(--header-h); }
+.page-title h1 {
+    scroll-margin-top: var(--header-h);
+}
+
 
 /* Your hero already has padding-top; tie it to the header height so it’s always correct */
-.video-hero { padding-top: calc(var(--header-h) + 40px); }
+
+.video-hero {
+    padding-top: calc(var(--header-h) + 40px);
+}
+
 
 /* Avoid any top-margin collapse that can tuck the title under the header */
-.about-content h2 { margin-top: 0; padding-top: 8px; }
 
-
+.about-content h2 {
+    margin-top: 0;
+    padding-top: 8px;
+}

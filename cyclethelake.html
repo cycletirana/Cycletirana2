@@ -4,25 +4,28 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cycle Around the Lake | Cycle Tirana</title>
+    <title>Cycle the City - Cycle Tirana</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <link rel="stylesheet" href="cyclethelake.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="tourpage.css" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 
 </head>
 
 <body>
     <div id="header-placeholder"></div>
-    <h1 class="page-heading">Cycle at the lake</h1>
+    <h1 class="section-title">Cycle at the lake</h1>
 
     <section class="tour-detail">
         <div class="tour-wrapper">
 
-            <!-- LEFT: DESCRIPTION -->
-            <div class="tour-text">
+            <!-- LEFT CARD: TEXT -->
+            <div class="tour-card tour-text cycle-lake">
                 <h2 style="text-align: center;">Tour Description</h2>
-                <p style="margin-bottom: 10px"></p><strong>Join us for a 3-hour sunset cycling experience through Tirana's most scenic and meaningful spots!</strong></p>
+                <strong>Join us for a 3-hour sunset cycling experience through Tirana's most scenic and meaningful spots!</strong></p>
                 <p>This ride is more than just a tour — it's a story, a workout, and a memory in motion. Here's how the adventure unfolds:</p>
 
                 <ul>
@@ -36,11 +39,11 @@
                     <li><strong>🔁 Return</strong> – Back to the start with memories made.</li>
                 </ul>
 
-                <p><em>Perfect for travelers, locals, couples, or groups — this tour blends movement, storytelling, and the city's best sunset spot.</em></p>
+                <p style="margin-top: 10px"><em>Perfect for travelers, locals, couples, or groups — this tour blends movement, storytelling, and the city's best sunset spot.</em></p>
             </div>
 
-            <!-- RIGHT: IMAGE -->
-            <div class="tour-image">
+            <!-- RIGHT CARD: IMAGE -->
+            <div class="tour-card tour-image">
                 <img src="images/Liqenio.jpg" alt="Cycle Around the Lake Map" />
             </div>
 
@@ -48,61 +51,50 @@
     </section>
 
 
-<section class="pricing-album-section">
-  <!-- LEFT: pricing -->
-  <div class="pricing-box">
-    <h2>Tour Pricing</h2>
-    <p><strong>Individuals :</strong> €25</p>
+    <section class="pricing-album-section">
+        <div class="pricing-box">
+            <h2>Tour Pricing</h2>
+            <p><strong>Individuals:</strong> €25</p>
 
-    <h3>What's Included:</h3>
-    <ul>
-      <li>🚴 Bicycle</li>
-      <li>🚔 Helmet</li>
-      <li>👨‍💼 Professional Guide</li>
-      <li>✅ Tips are appreciated</li>
-    </ul>
-  </div>
+            <h3>What's Included:</h3>
+            <ul>
+                <li>🚴 Bicycle</li>
+                <li>🚔 Helmet</li>
+                <li>👨‍💼 Professional Guide</li>
+                <li>👍 Tips are appreciated</li>
+            </ul>
+        </div>
 
-<div class="album-box">
-  <!-- Main big slider -->
-  <div class="swiper mainSwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="images/stoku1.jpg"  alt="Photo 1"></div>
-      <div class="swiper-slide"><img src="images/stoku2.jpg"  alt="Photo 2"></div>
-      <div class="swiper-slide"><img src="images/stoku3.jpg"  alt="Photo 3"></div>
-      <div class="swiper-slide"><img src="images/stoku4.jpg"  alt="Photo 4"></div>
-      <div class="swiper-slide"><img src="images/stoku5.jpg"  alt="Photo 5"></div>
-      <div class="swiper-slide"><img src="images/stoku6.jpg"  alt="Photo 6"></div>
-      <div class="swiper-slide"><img src="images/stoku7.jpg"  alt="Photo 7"></div>
-      <div class="swiper-slide"><img src="images/stoku8.jpg"  alt="Photo 8"></div>
-      <div class="swiper-slide"><img src="images/stoku9.jpg"  alt="Photo 9"></div>
-      <div class="swiper-slide"><img src="images/stoku10.jpg" alt="Photo 10"></div>
-    </div>
+        <div class="album-box">
+            <!-- Main slider -->
+            <div class="swiper mainSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/stoku1.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="images/stoku2.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="images/stoku3.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="images/stoku4.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="images/stoku5.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="images/stoku6.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="images/stoku7.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="images/stoku8.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="images/stoku9.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="images/stoku10.jpg" alt=""></div>
+                </div>
 
-    <!-- controls must be INSIDE the .swiper -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-pagination"></div>
-  </div>
+                <!-- Controls -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+            </div>
 
-  <!-- Thumbnails strip -->
-  <div class="swiper thumbSwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="images/stoku1.jpg"  alt=""></div>
-      <div class="swiper-slide"><img src="images/stoku2.jpg"  alt=""></div>
-      <div class="swiper-slide"><img src="images/stoku3.jpg"  alt=""></div>
-      <div class="swiper-slide"><img src="images/stoku4.jpg"  alt=""></div>
-      <div class="swiper-slide"><img src="images/stoku5.jpg"  alt=""></div>
-      <div class="swiper-slide"><img src="images/stoku6.jpg"  alt=""></div>
-      <div class="swiper-slide"><img src="images/stoku7.jpg"  alt=""></div>
-      <div class="swiper-slide"><img src="images/stoku8.jpg"  alt=""></div>
-      <div class="swiper-slide"><img src="images/stoku9.jpg"  alt=""></div>
-      <div class="swiper-slide"><img src="images/stoku10.jpg" alt=""></div>
-    </div>
-  </div>
-</div>
+            <!-- Thumbnails slider -->
+            <div class="swiper thumbSwiper">
+                <div class="swiper-wrapper"></div>
+            </div>
+        </div>
+    </section>
 
-</section>
+
     <!-- Booking Section -->
     <section id="contact-booking" class="booking-container">
         <h2>Book Your Tour</h2>
@@ -194,7 +186,7 @@
             <div class="bike"></div>
         </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 
 </html>
