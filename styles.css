@@ -151,13 +151,6 @@ nav ul li a:hover {
   color: green;
 }
 
-footer {
-  background-color: #222;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
 .video-section {
   position: relative;
   width: 100%;
@@ -377,14 +370,15 @@ footer {
 
 .footer {
   width: 100%;
-  background-color: #f4faff;
-  padding: 20px 0;
+  background-color: #f4faff; /* or #222 if you want dark */
+  color: #fff;
+  height: 60px; /* fixed footer height */
+  display: flex; /* flexbox lets us center things */
+  justify-content: center; /* horizontal center */
+  align-items: center; /* vertical center */
   text-align: center;
   position: relative;
-  opacity: 1;
-  transform: translateY(0);
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-  /* optional soft top shadow */
   z-index: 10;
 }
 
@@ -1136,5 +1130,106 @@ button[type="submit"]:hover {
   }
   .reviews-box {
     width: 70% !important;
+  }
+}
+
+.footer .social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+  padding: 18px 16px 28px;
+  min-height: 64px;
+  box-sizing: border-box;
+  padding-left: 82px; /* leaves room for WhatsApp bubble */
+}
+
+.footer .social-icons a {
+  font-size: 28px;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 0.2s, color 0.3s, filter 0.2s;
+  width: 44px;
+  height: 44px;
+}
+
+/* Brand colors */
+.footer .social-icons .fa-youtube {
+  color: #ff0000;
+}
+.footer .social-icons .fa-instagram {
+  background: radial-gradient(
+    circle at 30% 110%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.footer .social-icons .fa-tiktok {
+  color: #000000;
+}
+.footer .social-icons .fa-facebook {
+  color: #1877f2;
+}
+.footer .social-icons .fa-x-twitter,
+.footer .social-icons .fa-x {
+  color: #000000;
+}
+.footer .social-icons .fa-linkedin {
+  color: #0a66c2;
+}
+.footer .social-icons .fa-whatsapp {
+  color: #25d366;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  left: 16px;
+
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+
+  display: flex; /* fixes the "line under icon" */
+  align-items: center;
+  justify-content: center;
+
+  background: #25d366; /* WhatsApp green */
+  color: #fff;
+  font-size: 28px;
+  text-decoration: none; /* removes underline */
+  line-height: 1; /* prevents stray line below */
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  z-index: 2147483647; /* highest layer */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.whatsapp-float i {
+  pointer-events: none; /* makes only the circle clickable */
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.06);
+  background: #1ebe5d;
+}
+
+/* Slightly smaller on very small screens */
+@media (max-width: 480px) {
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
   }
 }
