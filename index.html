@@ -1,303 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cycle Tirana</title>
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
 
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="./font-awsome.min.css">
-
-</head>
-<!--  -->
-<body>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./font-awsome.min.css" />
+  </head>
+  <!--  -->
+  <body>
     <div id="header-placeholder"></div>
     <section id="home" class="video-section">
-        <video autoplay muted loop playsinline id="bgVideo">
-      <source src="video/cycletirana.mp4" type="video/mp4">
-      Your browser does not support HTML video.
-    </video>
+      <video autoplay muted loop playsinline id="bgVideo">
+        <source src="video/cycletirana.mp4" type="video/mp4" />
+        Your browser does not support HTML video.
+      </video>
 
-        <div class="video-text-overlay">
-            <h1>
-                Discover Tirana on Two Wheels.
-            </h1>
-            <h1>
-                Adventure Starts Here!
-            </h1>
-            <p>Experience the city like never before.</p>
-            <a href="#tours" class="explore-button main-btn">See Tours</a>
-        </div>
+      <div class="video-text-overlay">
+        <h1>Discover Tirana on Two Wheels.</h1>
+        <h1>Adventure Starts Here!</h1>
+        <p>Experience the city like never before.</p>
+        <a href="#tours" class="explore-button main-btn">See Tours</a>
+      </div>
     </section>
 
     <section class="tours-section" id="tours">
-        <div class="tours-row">
-
-            <div class="tour-block">
-                <div class="tour-card" id="tour1">
-                    <img src="images/piramida.jpg" alt="Cycle the city" />
-                    <div class="tour-info">
-                        <h3>Cycle the city</h3>
-                        <a href="cycle-the-city.html" class="explore-button boxtour">Explore Tour</a>
-                        <span onclick="toggleDescription(document.getElementById('tour1'))" class="bottom-info">
-                            <i class="fad fa-info-circle"></i>
-                            Why this tour ?
-                        </span>
-                    </div>
-                </div>
-                <div class="tour-description">
-                    <p>Ride through Tirana's iconic streets, neighborhoods, and hidden gems by bike. Suitable for all levels.</p>
-                </div>
+      <div class="tours-row">
+        <div class="tour-block">
+          <div class="tour-card" id="tour1">
+            <img src="images/piramida.jpg" alt="Cycle the city" />
+            <div class="tour-info">
+              <h3>Cycle the city</h3>
+              <a href="cycle-the-city.html" class="explore-button boxtour"
+                >Explore Tour</a
+              >
+              <span
+                onclick="toggleDescription(document.getElementById('tour1'))"
+                class="bottom-info"
+              >
+                <i class="fad fa-info-circle"></i>
+                Why this tour ?
+              </span>
             </div>
-
-            <div class="tour-block">
-                <div class="tour-card" id="tour2">
-                    <img src="images/liqeni.jpg" alt="Cycle around the lake" />
-                    <div class="tour-info">
-                        <h3>Golden hours</h3>
-                        <a href="cyclethelake.html" class="explore-button boxtour">Explore Tour</a>
-                        <span onclick="toggleDescription(document.getElementById('tour2'))" class="bottom-info">
-                            <i class="fad fa-info-circle"></i>
-                            Why this tour ?
-                        </span>
-                    </div>
-                </div>
-                <div class="tour-description">
-                    <p>A relaxing cycling experience around Tirana’s artificial lake and nature park. Scenic and peaceful.</p>
-                </div>
-            </div>
-
-            <div class="tour-block">
-                <div class="tour-card" id="tour3">
-                    <img src="images/Bakflip.jpg" alt="Personalise tours" />
-                    <div class="tour-info">
-                        <h3>Group discount</h3>
-                        <a href="personalise.html" class="explore-button boxtour">Explore Tour</a>
-                        <span onclick="toggleDescription(document.getElementById('tour3'))" class="bottom-info">
-                            <i class="fad fa-info-circle"></i>
-                            Why this tour ?
-                        </span>
-                    </div>
-                </div>
-                <div class="tour-description">
-                    <p>Customize your own route. Choose what to see, how fast to ride, and where to stop. A unique local ride.</p>
-                </div>
-            </div>
-
+          </div>
+          <div class="tour-description">
+            <p>
+              Ride through Tirana's iconic streets, neighborhoods, and hidden
+              gems by bike. Suitable for all levels.
+            </p>
+          </div>
         </div>
+
+        <div class="tour-block">
+          <div class="tour-card" id="tour2">
+            <img src="images/liqeni.jpg" alt="Cycle around the lake" />
+            <div class="tour-info">
+              <h3>Golden hours</h3>
+              <a href="cyclethelake.html" class="explore-button boxtour"
+                >Explore Tour</a
+              >
+              <span
+                onclick="toggleDescription(document.getElementById('tour2'))"
+                class="bottom-info"
+              >
+                <i class="fad fa-info-circle"></i>
+                Why this tour ?
+              </span>
+            </div>
+          </div>
+          <div class="tour-description">
+            <p>
+              A relaxing cycling experience around Tirana’s artificial lake and
+              nature park. Scenic and peaceful.
+            </p>
+          </div>
+        </div>
+
+        <div class="tour-block">
+          <div class="tour-card" id="tour3">
+            <img src="images/Bakflip.jpg" alt="Personalise tours" />
+            <div class="tour-info">
+              <h3>Group discount</h3>
+              <a href="personalise.html" class="explore-button boxtour"
+                >Explore Tour</a
+              >
+              <span
+                onclick="toggleDescription(document.getElementById('tour3'))"
+                class="bottom-info"
+              >
+                <i class="fad fa-info-circle"></i>
+                Why this tour ?
+              </span>
+            </div>
+          </div>
+          <div class="tour-description">
+            <p>
+              Customize your own route. Choose what to see, how fast to ride,
+              and where to stop. A unique local ride.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="meeting-point-section">
-        <h2>Meeting Point</h2>
-        <div class="meeting-point-container">
-            <!-- Left: Map -->
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps?q=41.322213,19.811712&hl=en&z=18&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-
-            </div>
-
-            <!-- Right: Description -->
-            <div class="meeting-description">
-                <h3>Where to Find Us</h3>
-                <p>
-                    Our meeting point is next to <strong>Blloku</strong>,located at <strong>Cycle Tirana, Bajram Curri Blvd,
-            Tiranë</strong>. Just a short walk from the vibrant district, you’ll find us near the wide pedestrian sidewalk along the boulevard.
-                </p>
-                <p>If you need help finding us, feel free to get in touch anytime!</p>
-            </div>
+      <h2>Meeting Point</h2>
+      <div class="meeting-point-container">
+        <!-- Left: Map -->
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps?q=41.322213,19.811712&hl=en&z=18&output=embed"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
         </div>
+
+        <!-- Right: Description -->
+        <div class="meeting-description">
+          <h3>Where to Find Us</h3>
+          <p>
+            Our meeting point is next to <strong>Blloku</strong>,located at
+            <strong>Cycle Tirana, Bajram Curri Blvd, Tiranë</strong>. Just a
+            short walk from the vibrant district, you’ll find us near the wide
+            pedestrian sidewalk along the boulevard.
+          </p>
+          <p>If you need help finding us, feel free to get in touch anytime!</p>
+        </div>
+      </div>
     </section>
 
     <div class="album-reviews-wrapper">
-        <div class="album-box">
-            <h1>
-                Photo Gallery
-            </h1>
-            <!-- Main slider -->
-            <div class="swiper mainSwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="images/pho1.jpg" alt="Photo 1" /></div>
-                    <div class="swiper-slide"><img src="images/pho2.jpg" alt="Photo 2" /></div>
-                    <div class="swiper-slide"><img src="images/pho3.jpg" alt="Photo 3" /></div>
-                    <div class="swiper-slide"><img src="images/pho4.jpg" alt="Photo 4" /></div>
-                    <div class="swiper-slide"><img src="images/pho5.jpg" alt="Photo 5" /></div>
-                    <div class="swiper-slide"><img src="images/pho6.jpg" alt="Photo 6" /></div>
-                    <div class="swiper-slide"><img src="images/pho7.jpg" alt="Photo 7" /></div>
-                    <div class="swiper-slide"><img src="images/pho8.jpg" alt="Photo 8" /></div>
-                    <div class="swiper-slide"><img src="images/pho9.jpg" alt="Photo 9" /></div>
-                    <div class="swiper-slide"><img src="images/pho10.jpg" alt="Photo 10" /></div>
-                    <div class="swiper-slide"><img src="images/pho11.jpg" alt="Photo 11" /></div>
-                </div>
-
-                <!-- Controls -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-pagination"></div>
+      <div class="album-box">
+        <h1>Photo Gallery</h1>
+        <!-- Main slider -->
+        <div class="swiper mainSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="images/pho1.jpg" alt="Photo 1" />
             </div>
-
-            <!-- Thumbnails slider -->
-            <div class="swiper thumbSwiper">
-                <div class="swiper-wrapper"></div>
+            <div class="swiper-slide">
+              <img src="images/pho2.jpg" alt="Photo 2" />
             </div>
+            <div class="swiper-slide">
+              <img src="images/pho3.jpg" alt="Photo 3" />
+            </div>
+            <div class="swiper-slide">
+              <img src="images/pho4.jpg" alt="Photo 4" />
+            </div>
+            <div class="swiper-slide">
+              <img src="images/pho5.jpg" alt="Photo 5" />
+            </div>
+            <div class="swiper-slide">
+              <img src="images/pho6.jpg" alt="Photo 6" />
+            </div>
+            <div class="swiper-slide">
+              <img src="images/pho7.jpg" alt="Photo 7" />
+            </div>
+            <div class="swiper-slide">
+              <img src="images/pho8.jpg" alt="Photo 8" />
+            </div>
+            <div class="swiper-slide">
+              <img src="images/pho9.jpg" alt="Photo 9" />
+            </div>
+            <div class="swiper-slide">
+              <img src="images/pho10.jpg" alt="Photo 10" />
+            </div>
+            <div class="swiper-slide">
+              <img src="images/pho11.jpg" alt="Photo 11" />
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
         </div>
-        <div class="reviews-box">
-            <h2>Our Clients</h2>
-            <div class="review">
-                <div class="photo">
-                    <img src="./images/pfp1.png" alt="pfp1">
-                </div>
-                <div class="text-wrapper">
-                    <div class="name">
-                        Stefany James
-                    </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="comment">
-                        Hands down the best way to get to know Tirana! Erind gave a fantastic cycle tour and is a wonderful storyteller. He covered everything from the city’s history to street art and monuments in a beautifully curated way. The route was thoughtful and safe,
-                        making cycling through the city feel effortless. Highly recommend for anyone who wants experience the best of Tirana! </div>
-                </div>
-            </div>
-            <div class="review">
-                <div class="photo">
-                    <img src="./images/pfp2.png" alt="pfp1">
-                </div>
-                <div class="text-wrapper">
-                    <div class="name">
-                        Philippos Hadjioannou
-                    </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="comment">
-                        Excellent Tirana City Tour on bicycles! Erin has thought it all out! Bicycles for all ages and sizes - well thought route through and around the very interesting Capital of Albania. He provides a lot of information with strong story telling skills and
-                        his very good English. Our children 8, 10 & 13 loved it. Highly recommended </div>
-                </div>
-            </div>
 
-            <a target="_blank" href="https://www.google.com/maps/place/Cycle+Tirana/@41.3222043,19.8117468,277m/data=!3m1!1e3!4m8!3m7!1s0x135031c0729929e3:0x62c45face82029c4!8m2!3d41.3221844!4d19.8117924!9m1!1b1!16s%2Fg%2F11ygtg5h7j?hl=en&entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D">
-                Check all reviews
-            </a>
+        <!-- Thumbnails slider -->
+        <div class="swiper thumbSwiper">
+          <div class="swiper-wrapper"></div>
         </div>
+      </div>
+      <div class="reviews-box">
+        <h2>Our Clients</h2>
+        <div class="review">
+          <div class="photo">
+            <img src="./images/pfp1.png" alt="pfp1" />
+          </div>
+          <div class="text-wrapper">
+            <div class="name">Stefany James</div>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="comment">
+              Hands down the best way to get to know Tirana! Erind gave a
+              fantastic cycle tour and is a wonderful storyteller. He covered
+              everything from the city’s history to street art and monuments in
+              a beautifully curated way. The route was thoughtful and safe,
+              making cycling through the city feel effortless. Highly recommend
+              for anyone who wants experience the best of Tirana!
+            </div>
+          </div>
+        </div>
+        <div class="review">
+          <div class="photo">
+            <img src="./images/pfp2.png" alt="pfp1" />
+          </div>
+          <div class="text-wrapper">
+            <div class="name">Philippos Hadjioannou</div>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="comment">
+              Excellent Tirana City Tour on bicycles! Erin has thought it all
+              out! Bicycles for all ages and sizes - well thought route through
+              and around the very interesting Capital of Albania. He provides a
+              lot of information with strong story telling skills and his very
+              good English. Our children 8, 10 & 13 loved it. Highly recommended
+            </div>
+          </div>
+        </div>
+
+        <a
+          target="_blank"
+          href="https://www.google.com/maps/place/Cycle+Tirana/@41.3222043,19.8117468,277m/data=!3m1!1e3!4m8!3m7!1s0x135031c0729929e3:0x62c45face82029c4!8m2!3d41.3221844!4d19.8117924!9m1!1b1!16s%2Fg%2F11ygtg5h7j?hl=en&entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D"
+        >
+          Check all reviews
+        </a>
+      </div>
     </div>
 
-
-
     <section id="contact-booking" class="booking-container">
-        <h2>Book Your Tour</h2>
-        <form id="booking-form" action="send_booking.php" method="POST">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="selected-tour">Select Tour:</label>
-                    <select id="selected-tour" name="selected_tour" required>
-            <option value="">-- Choose a tour --</option>
-            <option value="cycle-the-city">Cycle the City</option>
-            <option value="cycle-the-lake">Cycle around the Lake</option>
-            <option value="personalised">Group discount</option>
-          </select>
-                </div>
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-            </div>
+      <h2>Book Your Tour</h2>
+      <form id="booking-form" action="send_booking.php" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="selected-tour">Select Tour:</label>
+            <select id="selected-tour" name="selected_tour" required>
+              <option value="">-- Choose a tour --</option>
+              <option value="cycle-the-city">Cycle the City</option>
+              <option value="cycle-the-lake">Cycle around the Lake</option>
+              <option value="personalised">Group discount</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+        </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" pattern="[\+0-9\s]{10,20}" placeholder="+355 69 123 4567" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-            </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              pattern="[\+0-9\s]{10,20}"
+              placeholder="+355 69 123 4567"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+        </div>
 
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" placeholder="Any questions or preferences?" required></textarea>
-            </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Any questions or preferences?"
+            required
+          ></textarea>
+        </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="date">Preferred Date:</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-                <div class="form-group">
-                    <label for="people">Number of People:</label>
-                    <input type="number" id="people" name="people" min="1" max="20" required>
-                </div>
-            </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">Preferred Date:</label>
+            <input type="date" id="date" name="date" required />
+          </div>
+          <div class="form-group">
+            <label for="people">Number of People:</label>
+            <input
+              type="number"
+              id="people"
+              name="people"
+              min="1"
+              max="20"
+              required
+            />
+          </div>
+        </div>
 
-            <button type="submit">Send Booking</button>
-        </form>
+        <button type="submit">Send Booking</button>
+      </form>
     </section>
 
     <!-- Contact Section -->
-    <footer class="footer">
-        <div class="social-icons">
-            <a href="https://youtube.com" target="_blank" class="icon" aria-label="YouTube">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="https://instagram.com" target="_blank" class="icon" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://tiktok.com" target="_blank" class="icon " aria-label="TikTok">
-                <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="https://google.com" target="_blank" class="icon" aria-label="Google">
-                <i class="fab fa-google"></i>
-            </a>
-            <a href="https://facebook.com" target="_blank" class="icon" aria-label="Facebook">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://twitter.com" target="_blank" class="icon" aria-label="Twitter">
-                <i class="fab fa-x-twitter"></i>
-            </a>
-            <a href="https://linkedin.com" target="_blank" class="icon" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://wa.me/1234567890" target="_blank" class="icon" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <!-- Tiny bike -->
-            <div class="bike"></div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
-    <div id="booking-popup" style="display:none;" class="popup-success">
-        ✅ Booking received! We’ll get in touch soon.
+    <div id="booking-popup" style="display: none" class="popup-success">
+      ✅ Booking received! We’ll get in touch soon.
     </div>
 
     <!-- Swiper JS -->
     <script src="script.js"></script>
 
     <script>
-        fetch('header.html')
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            });
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        });
+
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-
-
-</body>
-
+  </body>
 </html>

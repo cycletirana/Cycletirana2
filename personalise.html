@@ -1,154 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Group Tours | Cycle Tirana</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="./personalise.css" />
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <div id="header-placeholder"></div>
 
     <h1 class="section-title">Group tours</h1>
 
     <section class="group-tours-info">
-        <div class="tour-option">
-            <h2>Cycle the City</h2>
-            <p>🚴‍♀️ Discover Tirana’s vibrant city life and on two wheels!</p>
-            <ul>
-                <li><strong>Standard Price:</strong></li>
-                <li>• Individuals: €15</li>
-                <li><strong>Group Discount (6+ people):</strong></li>
-                <li>• Adults: €13</li>
-                <button type="button" class="book-btn" onclick="selectTour('city')">Book This Tour</button>
-            </ul>
-        </div>
-
-        <div class="tour-option">
-            <h2>Cycle the Lake</h2>
-            <p>🌳 A refreshing ride around Tirana’s artificial lake and green park trails.</p>
-            <ul>
-                <li><strong>Standard Price:</strong></li>
-                <li>• Individuals: €25</li>
-                <li><strong>Group Discount (6+ people):</strong></li>
-                <li>• Adults: €23</li>
-                <button type="button" class="book-btn" onclick="selectTour('lake')">Book This Tour</button>
-        </div>
+      <div class="tour-option">
+        <h2>Cycle the City</h2>
+        <p>🚴‍♀️ Discover Tirana’s vibrant city life and on two wheels!</p>
+        <ul>
+          <li><strong>Standard Price:</strong></li>
+          <li>• Individuals: €15</li>
+          <li><strong>Group Discount (6+ people):</strong></li>
+          <li>• Adults: €13</li>
+          <button type="button" class="book-btn" onclick="selectTour('city')">
+            Book This Tour
+          </button>
         </ul>
-        </div>
+      </div>
+
+      <div class="tour-option">
+        <h2>Cycle the Lake</h2>
+        <p>
+          🌳 A refreshing ride around Tirana’s artificial lake and green park
+          trails.
+        </p>
+        <ul>
+          <li><strong>Standard Price:</strong></li>
+          <li>• Individuals: €25</li>
+          <li><strong>Group Discount (6+ people):</strong></li>
+          <li>• Adults: €23</li>
+          <button type="button" class="book-btn" onclick="selectTour('lake')">
+            Book This Tour
+          </button>
+        </ul>
+      </div>
     </section>
 
     <section id="contact-booking" class="booking-container">
-        <h2>Book Your Tour</h2>
-        <form id="booking-form" action="send_booking.php" method="POST">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="selected-tour">Select Tour:</label>
-                    <select id="selected-tour" name="selected_tour" required>
-            <option value="">-- Choose a tour --</option>
-            <option value="cycle-the-city">Cycle the City</option>
-            <option value="cycle-the-lake">Cycle around the Lake</option>
-          </select>
-                </div>
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-            </div>
+      <h2>Book Your Tour</h2>
+      <form id="booking-form" action="send_booking.php" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="selected-tour">Select Tour:</label>
+            <select id="selected-tour" name="selected_tour" required>
+              <option value="">-- Choose a tour --</option>
+              <option value="cycle-the-city">Cycle the City</option>
+              <option value="cycle-the-lake">Cycle around the Lake</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+        </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" pattern="[\+0-9\s]{10,20}" placeholder="+355 69 123 4567" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-            </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              pattern="[\+0-9\s]{10,20}"
+              placeholder="+355 69 123 4567"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+        </div>
 
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" placeholder="Any questions or preferences?" required></textarea>
-            </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Any questions or preferences?"
+            required
+          ></textarea>
+        </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="date">Preferred Date:</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-                <div class="form-group">
-                    <label for="people">Number of People:</label>
-                    <input type="number" id="people" name="people" min="1" max="20" required>
-                </div>
-            </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">Preferred Date:</label>
+            <input type="date" id="date" name="date" required />
+          </div>
+          <div class="form-group">
+            <label for="people">Number of People:</label>
+            <input
+              type="number"
+              id="people"
+              name="people"
+              min="1"
+              max="20"
+              required
+            />
+          </div>
+        </div>
 
-            <button type="submit">Send Booking</button>
-        </form>
+        <button type="submit">Send Booking</button>
+      </form>
     </section>
-
-
-    <script>
-        fetch('header.html')
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            });
-    </script>
 
     <script src="script.js"></script>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="social-icons">
-            <a href="https://youtube.com" target="_blank" class="icon" aria-label="YouTube">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="https://instagram.com" target="_blank" class="icon" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://tiktok.com" target="_blank" class="icon" aria-label="TikTok">
-                <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="https://google.com" target="_blank" class="icon" aria-label="Google">
-                <i class="fab fa-google"></i>
-            </a>
-            <a href="https://facebook.com" target="_blank" class="icon" aria-label="Facebook">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://twitter.com" target="_blank" class="icon" aria-label="Twitter">
-                <i class="fab fa-x-twitter"></i>
-            </a>
-            <a href="https://linkedin.com" target="_blank" class="icon" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://wa.me/1234567890" target="_blank" class="icon" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <div class="bike"></div>
-        </div>
-    </footer>
+
+    <div id="footer-placeholder"></div>
 
     <script>
-        function selectTour(tourType) {
-            const dropdown = document.getElementById("selected-tour");
-            dropdown.value = tourType === "city" ? "cycle-the-city" : "cycle-the-lake";
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        });
 
-            const bookingSection = document.getElementById("contact-booking");
-            bookingSection.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
     </script>
+    <script>
+      function selectTour(tourType) {
+        const dropdown = document.getElementById("selected-tour");
+        dropdown.value =
+          tourType === "city" ? "cycle-the-city" : "cycle-the-lake";
 
-
-</body>
-
+        const bookingSection = document.getElementById("contact-booking");
+        bookingSection.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    </script>
+  </body>
 </html>
