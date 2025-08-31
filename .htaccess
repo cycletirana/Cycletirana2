@@ -1,49 +1,12 @@
-# ===== Cycle Tirana .htaccess (security + HTTPS) =====
-
-# --- Force HTTPS ---
-
-RewriteEngine On
-RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# --- Canonical host: redirect www -> non-www ---
-
-# (If you prefer www, invert this to redirect non-www -> www)
-
-RewriteCond %{HTTP_HOST} ^www\.cycletirana\.com$ [NC]
-RewriteRule ^ https://cycletirana.com%{REQUEST_URI} [L,R=301]
-
-# --- Security headers ---
-
 <IfModule mod_headers.c>
-  # HSTS (1 year) + preload (only submit to hstspreload.org when fully ready)
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
 
-# Clickjacking protection (and modern equivalent in CSP below)
+# --- TEMP: turn CSP off while we fix the page ---
 
-Header always set X-Frame-Options "SAMEORIGIN"
+# Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; frame-src 'self' https://www.google.com https://www.google.com/maps; img-src 'self' data: blob: https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; media-src 'self' blob: https:; connect-src 'self'; upgrade-insecure-requests"
 
-# Stop MIME sniffing
-
-Header always set X-Content-Type-Options "nosniff"
-
-# Safer referrers off-site; full referrers same-origin
-
-Header always set Referrer-Policy "strict-origin-when-cross-origin"
-
-# Lock down powerful browser features you don't use
-
-Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
-
-# -------- Content Security Policy --------
-
-# Allows: your own assets, Google Fonts, Swiper from jsDelivr, optional Font Awesome from cdnjs,
-
-# and Google Maps iframe. Keeps inline CSS/JS allowed for your current pages.
-
-Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; frame-src 'self' https://www.google.com https://www.google.com/maps; img-src 'self' data: blob: https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; media-src 'self' blob: https:; connect-src 'self'; upgrade-insecure-requests"
 </IfModule>
-
-# (Optional) Custom 404/redirect rules could go here.
-
-# ===== End =====
