@@ -1,0 +1,49 @@
+# ===== Cycle Tirana .htaccess (security + HTTPS) =====
+
+# --- Force HTTPS (keep on) ---
+
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# --- Canonical host (optional): redirect www -> non-www ---
+
+# If you prefer www, invert the two lines accordingly.
+
+RewriteCond %{HTTP_HOST} ^www\.cycletirana\.com$ [NC]
+RewriteRule ^ https://cycletirana.com%{REQUEST_URI} [L,R=301]
+
+# --- Security headers ---
+
+<IfModule mod_headers.c>
+  # HSTS (1 year) + preload (submit to hstspreload.org only when you're sure)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+# Clickjacking protection
+
+Header always set X-Frame-Options "SAMEORIGIN"
+
+# Stop MIME sniffing
+
+Header always set X-Content-Type-Options "nosniff"
+
+# Safer referrers off-site; full referrers same-origin
+
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+# Lock down powerful browser features you don't use
+
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
+
+# Content Security Policy (kept practical for your current site)
+
+# - Allows your own assets, Google Fonts, inline styles/scripts used by your pages
+
+# - Blocks plugins/objects, disallows being embedded by other sites
+
+Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; img-src 'self' data: blob: https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; media-src 'self' blob: https:; connect-src 'self'; upgrade-insecure-requests"
+</IfModule>
+
+# (Optional) Better 404s can go here; keep minimal to avoid conflicts.
+
+# ===== End =====
