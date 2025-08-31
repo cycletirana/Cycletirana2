@@ -1,81 +1,111 @@
-# ===== Force HTTPS (always redirect to https) =====
+# =========================
+
+# CycleTirana hardened .htaccess
+
+# =========================
+
+# --- Force HTTPS (safe to keep even if hPanel also forces HTTPS)
 
 RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# ===== Canonical domain (optional: non-www to www, or reverse) =====
-
-# Uncomment ONE of the following blocks depending on your preference:
-
-# --- Redirect www to non-www (https://cycletirana.com) ---
-
-#RewriteCond %{HTTP_HOST} ^www\.cycletirana\.com$ [NC]
-#RewriteRule ^ https://cycletirana.com%{REQUEST_URI} [L,R=301]
-
-# --- Redirect non-www to www (https://www.cycletirana.com) ---
-
-#RewriteCond %{HTTP_HOST} !^www\. [NC]
-#RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# ===== Security Headers =====
+# --- Security headers
 
 <IfModule mod_headers.c>
-  # HSTS: enforce HTTPS for 1 year + preload
+  # HSTS (1 year) + preload (only keep if your site will ALWAYS be HTTPS)
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 
-# Prevent clickjacking
+# Clickjacking / MIME sniffing / Referrer / Permissions
 
 Header always set X-Frame-Options "SAMEORIGIN"
-
-# Stop MIME sniffing
-
 Header always set X-Content-Type-Options "nosniff"
-
-# Referrer policy
-
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
-# Browser features control
+# Lock down powerful browser features you don't use
 
-Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
 
-# ===== Content Security Policy =====
+# --- Content Security Policy (CSP)
 
-# Allows:
+# Allows your site, Google Maps (iframe & JS API), Google Fonts,
 
-# - your own site ('self')
+# Swiper + Font Awesome from JSDelivr/Cloudflare, images/video blobs.
 
-# - Leaflet scripts, styles, and map tiles
+Header always set Content-Security-Policy "\
+ default-src 'self'; \
+ base-uri 'self'; \
+ object-src 'none'; \
+ frame-ancestors 'self'; \
+ upgrade-insecure-requests; \
+ img-src 'self' data: blob: https: https://maps.gstatic.com https://maps.googleapis.com https://_.googleusercontent.com; \
+ media-src 'self' blob: https:; \
+ font-src 'self' https://fonts.gstatic.com data:; \
+ style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; \
+ script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://maps.googleapis.com https://maps.gstatic.com; \
+ connect-src 'self'; \
+ frame-src 'self' https://www.google.com https://_.google.com;"
 
-# - Google Fonts (Poppins)
+# Optional: Only if you serve any JSON/API from your domain (restrict as needed)
 
-# - JS/CSS/CDN for gallery (example: jsDelivr, unpkg)
+# Header always set Access-Control-Allow-Origin "https://www.cycletirana.com"
 
-# - Inline styles (needed for Leaflet + galleries)
+# Header always set Vary "Origin"
 
-Header always set Content-Security-Policy "
-default-src 'self';
-base-uri 'self';
-object-src 'none';
-frame-ancestors 'self';
-img-src 'self' data: blob: https://tile.openstreetmap.org https://_.tile.openstreetmap.org https://cdn.jsdelivr.net https://unpkg.com;
-script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net;
-style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://fonts.googleapis.com;
-font-src 'self' https://fonts.gstatic.com;
-media-src 'self' blob:;
-connect-src 'self' https://tile.openstreetmap.org https://_.tile.openstreetmap.org;
-upgrade-insecure-requests;
-"
 </IfModule>
 
-# ===== Hide server info / directory browsing =====
+# --- Disable dangerous HTTP methods (keep GET/POST/HEAD; OPTIONS left for safety)
 
-ServerSignature Off
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK|DELETE|PUT|PATCH|PROPFIND|MKCOL|COPY|MOVE|LOCK|UNLOCK)$ [NC]
+  RewriteRule .* - [F]
+</IfModule>
+
+# --- Hide dotfiles and sensitive paths
+
+<FilesMatch "^\.">
+Require all denied
+</FilesMatch>
+<IfModule mod_authz_core.c>
+<FilesMatch "(^\.|composer\.(json|lock)|package(-lock)?\.json|yarn\.lock|pnpm-lock\.yaml|webpack\.config\.js|vite\.config\.js|gulpfile\.js|Gruntfile\.js|Makefile|Dockerfile|docker-compose\.yml|env|\.env|\.git|\.hg|\.svn|backup|dump)">
+Require all denied
+</FilesMatch>
+</IfModule>
+
+# --- Content-type safety for common static assets
+
+AddType text/css .css
+AddType application/javascript .js
+
+# --- Sensible caching for static assets (tweak durations if you like)
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css                      "access plus 7 days"
+  ExpiresByType application/javascript        "access plus 7 days"
+  ExpiresByType image/webp                    "access plus 30 days"
+  ExpiresByType image/avif                    "access plus 30 days"
+  ExpiresByType image/png                     "access plus 30 days"
+  ExpiresByType image/jpg                     "access plus 30 days"
+  ExpiresByType image/jpeg                    "access plus 30 days"
+  ExpiresByType image/svg+xml                 "access plus 30 days"
+  ExpiresByType font/woff2                    "access plus 30 days"
+</IfModule>
+
+# --- Prevent directory listing
+
 Options -Indexes
 
-# ===== Secure cookies (if you ever set cookies later) =====
+# --- Fallback for single-page apps (disabled by default)
 
-<IfModule mod_headers.c>
-  Header edit Set-Cookie "(?i)^((?:(?!;).)+)" "$1; Secure; HttpOnly; SameSite=Lax"
-</IfModule>
+# RewriteCond %{REQUEST_FILENAME} !-f
+
+# RewriteCond %{REQUEST_FILENAME} !-d
+
+# RewriteRule . /index.html [L]
+
+# =========================
+
+# End
+
+# =========================
