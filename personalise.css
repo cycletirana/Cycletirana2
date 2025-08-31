@@ -12,13 +12,13 @@ body {
   font-size: 2.8rem;
   font-weight: 600;
   text-align: center;
-  color: #00695c;
+  color: #4d8d47;
   /* Adjust to match your site's theme */
   padding-top: 80px;
   /* Push it down from the fixed header */
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-family: "Poppins", sans-serif;
-  margin-top: 110px;
+  margin-top: 40px;
 }
 
 .group-tours-info {
@@ -39,11 +39,11 @@ body {
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   font-family: "Poppins", sans-serif;
-  border: 2px solid #1b9c85;
+  border: 2px solid #4d8d47;
 }
 
 .tour-option h2 {
-  color: #00695c;
+  color: #4d8d47;
   font-size: 1.8rem;
   margin-bottom: 15px;
 }
@@ -85,7 +85,7 @@ body {
 
 .booking-container h2 {
   font-size: 2.5rem;
-  color: #2e7d32;
+  color: #4d8d47;
   margin-bottom: 40px;
 }
 
@@ -122,7 +122,7 @@ body {
 
 .form-group label {
   font-weight: 600;
-  color: #388e3c;
+  color: #4d8d47;
   display: block;
   margin-bottom: 8px;
 }
@@ -157,11 +157,11 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #2e7d32;
+  background-color: #4d8d47;
 }
 
 .tour-card {
-  border: 2px solid #1b9c85;
+  border: 2px solid #4d8d47 !important;
   border-radius: 16px;
   padding: 20px;
   text-align: center;
@@ -172,7 +172,7 @@ button[type="submit"]:hover {
 }
 
 .book-btn {
-  background-color: #1b9c85;
+  background-color: #4d8d47;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -184,5 +184,5 @@ button[type="submit"]:hover {
 }
 
 .book-btn:hover {
-  background-color: #157a66;
+  background-color: #4d8d47;
 }
