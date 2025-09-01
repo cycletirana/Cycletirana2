@@ -1,9 +1,13 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Thanks for your booking | Cycle Tirana</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thank You | Cycle Tirana</title>
+    <link rel="icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="./thank-you.css" />
 
-    <!-- Global Google tag (keep same ID) -->
+    <!-- Google Ads global tag -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-17392100463"
@@ -17,17 +21,63 @@
       gtag("config", "AW-17392100463");
     </script>
 
-    <!-- Conversion event -->
+    <!-- Google Ads conversion event -->
     <script>
       gtag("event", "conversion", {
-        send_to: "AW-17392100463/3ceGCPv41pEbEO_lmeVA",
+        send_to: "AW-17392100463/3ceGCPv41pEbEO_Im eVA",
       });
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <h1>Thank you! 🎉</h1>
-    <p>We received your booking. We’ll reply shortly with confirmation.</p>
-    <a href="/index.html#contact-booking">Back to booking</a>
+    <div class="wrap">
+      <div class="brandbar">
+        <span class="dot" aria-hidden="true"></span>
+        <strong>Cycle Tirana</strong>
+        <span class="divider">•</span>
+        <span class="subtitle">Booking received</span>
+      </div>
+
+      <section class="card">
+        <div class="confetti" aria-hidden="true"></div>
+
+        <div class="check" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 6L9 17l-5-5" />
+          </svg>
+        </div>
+
+        <h1>Thank you for your booking! 🎉</h1>
+        <p class="lead">
+          We’ve received your request and will confirm by email or WhatsApp
+          shortly. If your tour is within the next 24 hours, feel free to
+          message us for faster confirmation.
+        </p>
+
+        <div class="grid">
+          <a class="btn btn-primary" href="/tours.html">View all tours</a>
+          <a class="btn btn-ghost" href="/index.html#contact-booking"
+            >Book another tour</a
+          >
+          <a
+            class="btn btn-outline"
+            href="https://wa.me/355697070788"
+            target="_blank"
+            rel="noopener"
+            >WhatsApp us</a
+          >
+        </div>
+
+        <p class="meta">
+          Meeting point: Cycle Tirana • Bajram Curri Blvd, Tiranë 1019
+        </p>
+      </section>
+    </div>
   </body>
 </html>
