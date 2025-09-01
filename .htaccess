@@ -38,12 +38,19 @@ Header always set Content-Security-Policy "\
  object-src 'none'; \
  frame-ancestors 'self'; \
  upgrade-insecure-requests; \
- img-src 'self' data: blob: https: https://maps.gstatic.com https://maps.googleapis.com https://_.googleusercontent.com; \
+ /_ IMAGES (site + GA pixel + Maps) _/ \
+ img-src 'self' data: blob: https: https://www.google-analytics.com https://maps.gstatic.com https://maps.googleapis.com https://_.googleusercontent.com; \
+ /_ AUDIO/VIDEO _/ \
  media-src 'self' blob: https:; \
+ /_ FONTS _/ \
  font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net data:; \
+ /_ STYLES (keep inline + CDNs + Google Fonts) _/ \
  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; \
- script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://maps.googleapis.com https://maps.gstatic.com; \
- connect-src 'self'; \
+ /_ SCRIPTS (add GTM/GA + keep Maps/CDNs) _/ \
+ script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://maps.googleapis.com https://maps.gstatic.com; \
+ /_ XHR/BEACON (allow GA/GTM hits) _/ \
+ connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; \
+ /_ IFRAMES (Google Maps embed) _/ \
  frame-src 'self' https://www.google.com https://_.google.com;"
 
 # Optional: Only if you serve any JSON/API from your domain (restrict as needed)

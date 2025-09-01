@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Send the email
         $mail->send();
-        header("Location: index.html?status=success");
+        header("Location: /thank-you.html");       
         exit();
         
     } catch (Exception $e) {
