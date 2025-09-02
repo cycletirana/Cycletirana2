@@ -4,7 +4,7 @@
 
 # =========================
 
-# --- Force HTTPS (safe to keep even if hPanel also forces HTTPS)
+# --- Force HTTPS
 
 RewriteEngine On
 RewriteCond %{HTTPS} !=on
@@ -13,7 +13,7 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 # --- Security headers
 
 <IfModule mod_headers.c>
-  # HSTS (1 year) + preload (only keep if your site will ALWAYS be HTTPS)
+  # HSTS (1 year) + preload
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 
 # Clickjacking / MIME sniffing / Referrer / Permissions
@@ -21,16 +21,13 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 Header always set X-Frame-Options "SAMEORIGIN"
 Header always set X-Content-Type-Options "nosniff"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
-
-# Lock down powerful browser features you don't use
-
 Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
 
 # --- Content Security Policy (CSP)
 
-# Allows your site, Google Maps (iframe & JS API), Google Fonts,
+# Keeps Maps + Swiper/CDNs + your images/videos
 
-# Swiper + Font Awesome from JSDelivr/Cloudflare, images/video blobs.
+# Adds Google Ads/Conversions/Tag Manager/Analytics
 
 Header always set Content-Security-Policy "\
  default-src 'self'; \
@@ -38,16 +35,31 @@ Header always set Content-Security-Policy "\
  object-src 'none'; \
  frame-ancestors 'self'; \
  upgrade-insecure-requests; \
- img-src 'self' data: blob: https: https://www.google-analytics.com https://maps.gstatic.com https://maps.googleapis.com https://_.googleusercontent.com https://_.tile.openstreetmap.org; \
+ img-src 'self' data: blob: https: \
+ https://www.google.com https://www.gstatic.com \
+ https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com \
+ https://maps.gstatic.com https://maps.googleapis.com \
+ https://_.googleusercontent.com https://_.tile.openstreetmap.org; \
  media-src 'self' blob: https:; \
  font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net data:; \
  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com; \
- script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://maps.googleapis.com https://maps.gstatic.com; \
- connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://maps.googleapis.com https://maps.gstatic.com https://_.tile.openstreetmap.org; \
- frame-src 'self' https://www.google.com https://_.google.com; \
+ script-src 'self' 'unsafe-inline' 'unsafe-eval' \
+ https://www.googletagmanager.com https://www.google-analytics.com \
+ https://www.google.com https://www.gstatic.com \
+ https://googleads.g.doubleclick.net https://www.googleadservices.com \
+ https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com \
+ https://maps.googleapis.com https://maps.gstatic.com; \
+ connect-src 'self' \
+ https://www.google-analytics.com https://www.googletagmanager.com \
+ https://www.google.com https://stats.g.doubleclick.net \
+ https://googleads.g.doubleclick.net https://www.googleadservices.com \
+ https://maps.googleapis.com https://maps.gstatic.com https://_.tile.openstreetmap.org; \
+ frame-src 'self' \
+ https://www.google.com https://_.google.com \
+ https://www.googletagmanager.com https://googleads.g.doubleclick.net; \
  worker-src 'self' blob:;"
 
-# Optional: Only if you serve any JSON/API from your domain (restrict as needed)
+# (Optional CORS example)
 
 # Header always set Access-Control-Allow-Origin "https://www.cycletirana.com"
 
@@ -55,7 +67,7 @@ Header always set Content-Security-Policy "\
 
 </IfModule>
 
-# --- Disable dangerous HTTP methods (keep GET/POST/HEAD; OPTIONS left for safety)
+# --- Disable dangerous HTTP methods
 
 <IfModule mod_rewrite.c>
   RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK|DELETE|PUT|PATCH|PROPFIND|MKCOL|COPY|MOVE|LOCK|UNLOCK)$ [NC]
@@ -73,31 +85,31 @@ Require all denied
 </FilesMatch>
 </IfModule>
 
-# --- Content-type safety for common static assets
+# --- Content-type safety
 
 AddType text/css .css
 AddType application/javascript .js
 
-# --- Sensible caching for static assets (tweak durations if you like)
+# --- Caching
 
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType text/css                      "access plus 7 days"
-  ExpiresByType application/javascript        "access plus 7 days"
-  ExpiresByType image/webp                    "access plus 30 days"
-  ExpiresByType image/avif                    "access plus 30 days"
-  ExpiresByType image/png                     "access plus 30 days"
-  ExpiresByType image/jpg                     "access plus 30 days"
-  ExpiresByType image/jpeg                    "access plus 30 days"
-  ExpiresByType image/svg+xml                 "access plus 30 days"
-  ExpiresByType font/woff2                    "access plus 30 days"
+  ExpiresByType text/css               "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/webp             "access plus 30 days"
+  ExpiresByType image/avif             "access plus 30 days"
+  ExpiresByType image/png              "access plus 30 days"
+  ExpiresByType image/jpg              "access plus 30 days"
+  ExpiresByType image/jpeg             "access plus 30 days"
+  ExpiresByType image/svg+xml          "access plus 30 days"
+  ExpiresByType font/woff2             "access plus 30 days"
 </IfModule>
 
 # --- Prevent directory listing
 
 Options -Indexes
 
-# --- Fallback for single-page apps (disabled by default)
+# --- SPA fallback (disabled)
 
 # RewriteCond %{REQUEST_FILENAME} !-f
 
